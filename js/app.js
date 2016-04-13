@@ -12,6 +12,13 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+  $('.hotOrCold').submit(function(event) {
+    event.preventDefault();
+    alert ('hello');
+  });
+
+  var something = $('#userGuess').val();
+
+  $('.text .guessBox').append("<li>" + something + "</li>");
+
 });
-
-
