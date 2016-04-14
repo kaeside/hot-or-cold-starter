@@ -11,14 +11,19 @@ $(document).ready(function(){
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
-
+    var countGuesses = 0;
   $('.hotOrCold').submit(function(event) {
     event.preventDefault();
-    alert ('hello');
+    countGuesses++;
+    var something = $('#userGuess').val();
+    $('.guessBox').append("<li>" + something + "</li>");
+    $("#count").text(countGuesses);
+    $("#userGuess").val('');
   });
-
-  var something = $('#userGuess').val();
-
-  $('.text .guessBox').append("<li>" + something + "</li>");
+$(".new").on("click", function() {
+  $("#count").text("0");
+  $("#guessList").empty();
+  countGuesses = 0;
+});
 
 });
