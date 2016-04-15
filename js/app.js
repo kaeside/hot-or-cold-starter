@@ -15,7 +15,7 @@ $(document).ready(function(){
     //GRABBING DATA ENTERED
     var guessedAnswer =  calculateAnswer ();
     function calculateAnswer() {
-      return Math.floor(numberRange(0,100));
+      return Math.floor(integerRange(0,100));
       console.log(guessedAnswer);
     }
      
@@ -39,34 +39,38 @@ $(document).ready(function(){
     //PROMPTS FOR GUESSES 
     
     //Math.abs returns the absolute value of a number   
-    var distance = Math.abs(something - guessedAnswer);
-    console.log(distance);
+    var guessedRange = Math.abs(something - guessedAnswer);
+    //console.log(distance);
     
     //These statements run pending on how close or far away the guessedAnswer is from the value
 
-    if (distance >= 50) {
-      $('#feedback').text('Freezing Cold');
+    if (guessedRange >= 50) {
+      $('#feedback').text('Ice Cold!');
     }
-    else if (distance >= 30) {
-      $('#feedback').text('Pretty Cold');
+    else if (guessedRange >= 40) {
+      $('#feedback').text('Cold,brrr!');
     }
-    else if (distance >= 20) {
+    else if (guessedRange >= 30) {
       $('#feedback').text('Warmish');
     }
-    else if (distance >= 10) {
+    else if (guessedRange >= 20) {
       $('#feedback').text('Warm');
     }
-    else if (distance > 1) {
+    else if (guessedRange >= 10) {
+      $('#feedback').text('Very Warm');
+    }
+    else if (guessedRange > 1) {
       $('#feedback').text('Hot');
     }
-    else if (distance === 0) {
+    else if (guessedRange === 0) {
       $('#feedback').text('You got the answer');
     }
 
   });
   
-  function numberRange(min, max) {
-    return min + (Math.random() * (max - min))
+  function integerRange(min, max) {
+    //Use Math.floor to round to nearest integer
+    return min + Math.floor((Math.random() * (max - min)))
   }
 
   // GENERATION OF NEW PAGE
