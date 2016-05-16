@@ -2,9 +2,7 @@ var actions = require('./actions');
 
 var store = require('./store');
 store.dispatch(actions.addRepository('joe'));
-{type: 'ADD_REPOSITORY', repository: 'joe'}
 store.getState();
-[]{name: 'joe,' rating: null}]
 
 var initialRepositoryState = [];
 
