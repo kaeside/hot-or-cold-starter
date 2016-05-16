@@ -1,8 +1,4 @@
-var actions = require('./actions');
-
-var store = require('./store');
-store.dispatch(actions.addRepository('joe'));
-store.getState();
+var actions = require('./actions.jsx');
 
 var initialRepositoryState = [];
 
