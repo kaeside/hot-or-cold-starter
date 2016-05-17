@@ -6,8 +6,7 @@ var Repository = require('./repository');
 var RepositoryList = React.createClass({
     addRepository: function() {
         var repositoryName = this.refs.repositoryName.value;
-        // TODO: Add the repository to the state
-    },
+        this.props.dispatch(actions.addRepository(repositoryName));    },
 
     render: function() {
         var repositories = this.props.repositories.map(function(repository) {
