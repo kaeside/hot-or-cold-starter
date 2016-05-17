@@ -3,8 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "js/index.jsx",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-redux": "^4.4.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "chokidar-cli": "^1.2.0",
+    "clean-css": "^3.4.12",
+    "less": "^2.7.1",
+    "uglify-js": "^2.6.2",
+    "webpack": "^1.13.0",
+    "http-server": "^0.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "mkdir": "mkdir -p build",
@@ -26,22 +41,6 @@
   },
   "author": "kaeside, elias & kyle",
   "license": "ISC",
-  "devDependencies": {
-    "babel-core": "^6.8.0",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "chokidar-cli": "^1.2.0",
-    "clean-css": "^3.4.12",
-    "less": "^2.7.1",
-    "uglify-js": "^2.6.2",
-    "webpack": "^1.13.0",
-    "http-server": "^0.9.0"
-  },
-  "dependencies": {
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2"
-},
   "bugs": {
     "url": "https://github.com/kaeside/hot-or-cold-starter/issues"
   },
