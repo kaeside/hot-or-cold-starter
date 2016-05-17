@@ -1,7 +1,10 @@
 var actions = require('./actions');
 var update = require('react-addons-update');
 
-var initialGameState = [];
+var initialGameState = [{
+    randomNumber: Math.floor((Math.random() * 100) + 1),
+    guesses: []
+}];
 
 var guessReducer = function(state, action) {
     state = state || initialGameState;
