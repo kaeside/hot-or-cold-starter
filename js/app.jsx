@@ -1,10 +1,16 @@
 var React = require('react');
+var actions = require('./actions');
 var HeaderComponent = require('./headerComponent');
 var GameComponent = require('./gameComponent');
 var connect = require('react-redux').connect;
 
 var AppComponent = React.createClass({
+    componentWillMount: function() {
+        this.props.dispatch()
+
+    },
     render: function() {
+        console.log(this.props);
         return (
             <div>
                 < HeaderComponent />
@@ -16,7 +22,6 @@ var AppComponent = React.createClass({
 });
 
 var mapStateToProps = function(state, props) {
-    console.log('HELP US OBI WAN');
     return {
         randomNumber: state.randomNumber,
         guesses: state.guesses
