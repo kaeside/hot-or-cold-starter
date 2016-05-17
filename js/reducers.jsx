@@ -9,7 +9,7 @@ var repositoryReducer = function(state, action) {
             name: action.repository,
             rating: null
         });
-    }
+    }    
     else if (action.type === actions.RATE_REPOSITORY) {
         // Find the index of the matching repository
         var index = -1;
