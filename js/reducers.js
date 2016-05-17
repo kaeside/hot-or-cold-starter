@@ -12,7 +12,11 @@ var guessReducer = function(state, action) {
             console.log("don't play with me, man");
         } else if ((action.guess % 1) != 0) {
             console.log('get whole, breh');
-        } else {
+        } else if (action.guess === state[state.length - 1].randomNumber) {
+            console.log('CORRECT BREH, NO CHEATING BREH')
+        }
+
+        else {
             var newState = update(state, {
                 [state.length - 1]: {guesses: {$push: [action.guess]}}
             });
