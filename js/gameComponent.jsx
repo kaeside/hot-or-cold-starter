@@ -1,5 +1,8 @@
-var GameComponent = React.CreateClass({
+var React = require('react');
+var FormComponent = require('./formComponent');
+var ListComponent = require('./listComponent');
 
+var GameComponent = React.CreateClass({
     render: function(){
         return (
             <section class="game"> <!-- Guessing Section -->
@@ -16,4 +19,6 @@ var GameComponent = React.CreateClass({
         );
     }
 });
+
+exports.GameComponent = GameComponent;
 
