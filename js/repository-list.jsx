@@ -1,4 +1,5 @@
 var React = require('react');
+var connect = require('react-redux').connect;
 
 var Repository = require('./repository');
 
@@ -25,4 +26,12 @@ var RepositoryList = React.createClass({
     }
 });
 
-module.exports = RepositoryList;
+var mapStateToProps = function(state, props) {
+    return {
+        repositories: state
+    };
+};
+
+var Container = connect(mapStateToProps)(RepositoryList);
+
+module.exports = Container;
