@@ -1,10 +1,11 @@
 var React = require('react');
+var connect = require('react-redux').connect;
+var app = require('./app');
 var FormComponent = require('./formComponent');
 var ListComponent = require('./listComponent');
 
 var GameComponent = React.createClass({
-    render: function(props){
-        console.log(props);
+    render: function(){
         return (
             <section className="game">
 
@@ -21,4 +22,7 @@ var GameComponent = React.createClass({
     }
 });
 
-module.exports = GameComponent;
+var Container = connect()(GameComponent);
+console.log(connect());
+
+module.exports = Container;

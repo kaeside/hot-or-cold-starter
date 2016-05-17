@@ -1,12 +1,12 @@
 var React = require('react');
 var app = require('./app');
+var connect = require('react-redux').connect;
 
 
 
 // TODO: get guesses from props!
 var ListComponent = React.createClass({
-    render: function(props) {
-        console.log("PROPS TBH", props);
+    render: function() {
         var listItems = [8,7,8]
         // var storeListItems = listItems.forEach(item, function(){
         //     return (<li>{item}</li>);
