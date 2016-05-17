@@ -2,13 +2,11 @@
   "name": "hot-or-cold-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "js/reducers.js",
+  "main": "js/index.jsx",
   "dependencies": {
     "react": "^15.0.2",
-    "react-addons-update": "^15.0.2",
-    "react-addons-updates": "0.0.0",
     "react-dom": "^15.0.2",
-    "redux": "^3.5.2"
+    "react-redux": "^4.4.5"
   },
   "devDependencies": {
     "babel-core": "^6.8.0",
@@ -32,6 +30,9 @@
     "build:html": "npm run clean:html && cp index.html build/",
     "watch:html": "npm run build:html && chokidar index.html -c 'npm run build:html'",
     "clean:html": "rm -f build/index.html",
+    "watch:css": "npm run build:css && chokidar 'css/**/*.less' -c 'npm run build:css'",
+    "build:css": "npm run clean:css && lessc --source-map css/index.less build/$npm_package_name.$npm_package_version.css",
+    "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
     "build:jsx": "npm run clean:jsx && webpack",
     "watch:jsx": "npm run build:jsx && webpack --watch",
     "clean:jsx": "rm -f build/$npm_package_name.$npm_package_version.jsx build/$npm_package_name.$npm_package_version.jsx.map"
