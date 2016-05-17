@@ -3,17 +3,18 @@ var FormComponent = require('./formComponent');
 var ListComponent = require('./listComponent');
 
 var GameComponent = React.createClass({
-    render: function(){
+    render: function(props){
+        console.log(props);
         return (
             <section className="game">
 
                 <h2 id="feedback">Make your Guess!</h2>
 
-                < FormComponent />
+                <FormComponent />
 
                 <p>Guess #<span id="count">0</span>!</p>
 
-                < ListComponent />
+                <ListComponent/>
 
             </section>
         );
@@ -21,4 +22,3 @@ var GameComponent = React.createClass({
 });
 
 module.exports = GameComponent;
-

@@ -7,15 +7,15 @@ var connect = require('react-redux').connect;
 var AppComponent = React.createClass({
     componentWillMount: function() {
         this.props.dispatch(actions.newGame());
-        this.props.dispatch(actions.makeGuess());
+        this.props.dispatch(actions.makeGuess(8));
 
     },
     render: function() {
-        console.log(this.props);
+        console.log("!!!",this.props);
         return (
             <div>
-                < HeaderComponent />
-                < GameComponent />
+                <HeaderComponent />
+                <GameComponent props={this.props}/>
             </ div>
 
         );
