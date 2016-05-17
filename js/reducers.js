@@ -1,13 +1,8 @@
 var actions = require('./actions');
 var update = require('react-addons-update');
 
-var initialGameState = [{
-    randomNumber: Math.floor((Math.random() * 100) + 1),
-    guesses: [8,6,7,5,3,1,9]
-}];
-
 var guessReducer = function(state, action) {
-    state = state || initialGameState;
+    state = state
     if (action.type === actions.MAKE_GUESS) {
         if (isNaN(action.guess) || action.guess === '') {
             console.log('Enter an actual number, fool.');
