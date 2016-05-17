@@ -6,7 +6,8 @@ var connect = require('react-redux').connect;
 
 var AppComponent = React.createClass({
     componentWillMount: function() {
-        this.props.dispatch()
+        this.props.dispatch(actions.newGame());
+        this.props.dispatch(actions.makeGuess());
 
     },
     render: function() {

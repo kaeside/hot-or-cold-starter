@@ -6,7 +6,8 @@ var app = require('./app');
 // TODO: get guesses from props!
 var ListComponent = React.createClass({
     render: function() {
-        var listItems = this.props.guesses;
+        // console.log(this.props);
+        var listItems = [8,7,8]
         // var storeListItems = listItems.forEach(item, function(){
         //     return (<li>{item}</li>);
         // });
