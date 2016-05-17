@@ -13,7 +13,7 @@ var guessReducer = function(state, action) {
         } else if ((action.guess % 1) != 0) {
             console.log('get whole, breh');
         } else if (action.guess === state[state.length - 1].randomNumber) {
-            console.log('CORRECT BREH, NO CHEATING BREH')
+            console.log('CORRECT BREH, NO CHEATING BREH');
         }
 
         else {
