@@ -1,6 +1,6 @@
 var React = require('react');
 
-var HeaderComponent = React.createClass(){
+var HeaderComponent = React.createClass({
     render: function () {
         
         return (
@@ -37,7 +37,7 @@ var HeaderComponent = React.createClass(){
         )
 
     }
-};
+});
 
 
-exports.HeaderComponent = HeaderComponent;
+module.exports = HeaderComponent;

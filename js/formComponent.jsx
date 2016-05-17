@@ -12,4 +12,4 @@ var FormComponent = React.createClass({
     }
 });
 
-exports.FormComponent = FormComponent;
+module.exports = FormComponent;

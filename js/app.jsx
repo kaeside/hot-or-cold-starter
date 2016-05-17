@@ -6,10 +6,13 @@ var GameComponent = require('./gameComponent');
 var AppComponent = React.createClass({
     render: function() {
         return (
-            < HeaderComponent />
-            < GameComponent />
+            <div>
+                < HeaderComponent />
+                < GameComponent />
+            </ div>
+
         );
     }
 });
 
-exports.AppComponent = AppComponent;
+module.exports = AppComponent;
