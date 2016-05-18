@@ -2,8 +2,8 @@ var actions = require('./actions');
 var update = require('react-addons-update');
 
 var guessReducer = function(state, action) {
-    state = state
-    var newState;
+    state = state;
+    var newState, feedback;
     if (action.type === actions.MAKE_GUESS) {
         if (isNaN(action.guess) || action.guess === '') {
             newState = update(state, {
@@ -42,13 +42,19 @@ var guessReducer = function(state, action) {
             });
             return newState;
         } else {
+            getFeedback = function(state, action){
+                
+            };
+            if (Math.abs(state[state.length-1].secretNumber - action.guess) < 10) {
+                feedback = 'hot!';
+            }
             newState = update(state, {
                 [state.length - 1]: {
                     guesses: {
                         $push: [action.guess]
                     },
                     feedback: {
-                        $set: 'You got a ways to go breh.'
+                        $set: feedback
                     }
                 }
             });
