@@ -1,16 +1,12 @@
 var React = require('react');
-var app = require('./app');
 var connect = require('react-redux').connect;
 
+var app = require('./app');
+var GameComponent = require('./gameComponent');
 
-
-// TODO: get guesses from props!
 var ListComponent = React.createClass({
     render: function() {
-        var listItems = [8,7,8]
-        // var storeListItems = listItems.forEach(item, function(){
-        //     return (<li>{item}</li>);
-        // });
+        var listItems = this.props.guesses;
 
         return (
             <ul id="guessList" className="guessBox clearfix">
@@ -21,5 +17,15 @@ var ListComponent = React.createClass({
         );
     }
 });
+var mapStateToProps = function(state, props) {
+    //Must get specific state object, else Props will be undefined!
+    var latest = state.length - 1;
+    return {
+        randomNumber: state[latest].randomNumber,
+        guesses: state[latest].guesses
+    }
+}
 
-module.exports = ListComponent;
+var Connect = connect(mapStateToProps)(ListComponent);
+
+module.exports = Connect;

@@ -1,8 +1,9 @@
 var React = require('react');
+var connect = require('react-redux').connect;
+
 var actions = require('./actions');
 var HeaderComponent = require('./headerComponent');
 var GameComponent = require('./gameComponent');
-var connect = require('react-redux').connect;
 
 var AppComponent = React.createClass({
     componentWillMount: function() {
@@ -14,7 +15,7 @@ var AppComponent = React.createClass({
             <div>
                 <HeaderComponent />
                 <GameComponent />
-            </ div>
+            </div>
 
         );
     }

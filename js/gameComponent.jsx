@@ -1,6 +1,6 @@
 var React = require('react');
-var connect = require('react-redux').connect;
-var app = require('./app');
+var connect = require('react-redux').connect
+
 var FormComponent = require('./formComponent');
 var ListComponent = require('./listComponent');
 
@@ -15,14 +15,22 @@ var GameComponent = React.createClass({
 
                 <p>Guess #<span id="count">0</span>!</p>
 
-                <ListComponent/>
+                <ListComponent />
 
             </section>
         );
     }
 });
 
-var Container = connect()(GameComponent);
-console.log(connect());
 
-module.exports = Container;
+// Necessary to re-map state at lower levels?
+var mapStateToProps = function(state, props) {
+    console.log("State within mapStateToProps of GameComponent.jsx", state);
+    return {
+        randomNumber: state.randomNumber,
+        guesses: state.guesses
+    }
+}
+
+var Connect = connect(mapStateToProps)(GameComponent);
+module.exports = Connect;
