@@ -8,6 +8,7 @@ var FormComponent = React.createClass({
         e.preventDefault();
         var userGuess = parseInt(this.refs.guessField.value);
         this.props.dispatch(actions.makeGuess(userGuess));
+        this.refs.guessField.value = '';
     },
     render: function() {
         return(
