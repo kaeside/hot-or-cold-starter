@@ -1,11 +1,10 @@
 var React = require('react');
 var connect = require('react-redux').connect;
 
-var app = require('./app');
-var GameComponent = require('./gameComponent');
 
 var ListComponent = React.createClass({
     render: function() {
+        console.log(this.props);
         var listItems = this.props.guesses;
 
         return (
