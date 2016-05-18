@@ -10,11 +10,10 @@ var FormComponent = React.createClass({
         this.props.dispatch(actions.makeGuess(userGuess));
     },
     render: function() {
-        console.log(this.props);
         return(
             <form onSubmit={this.preventRefresh}>
                 <input type="text" name="userGuess" id="userGuess" className="text" maxlength="3" autocomplete="off"
-                       placeholder="Enter your Guess" required ref="guessField"/>
+                       placeholder="Enter your Guess" ref="guessField" required/>
                 <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>
             </form>
         );
