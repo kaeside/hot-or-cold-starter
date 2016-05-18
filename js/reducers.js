@@ -42,12 +42,17 @@ var guessReducer = function(state, action) {
             });
             return newState;
         } else {
-            getFeedback = function(state, action){
-                
-            };
-            if (Math.abs(state[state.length-1].secretNumber - action.guess) < 10) {
-                feedback = 'hot!';
-            }
+           if (Math.abs(action.guess - state[state.length -1].randomNumber) < 10){
+               feedback = 'Very Hot!';
+           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 20){
+               feedback = 'Pretty Hot!';
+           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 30){
+               feedback = 'Meh!';
+           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 40){
+               feedback = 'Cold!';
+           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 50){
+               feedback = 'Very Cold!';
+           }
             newState = update(state, {
                 [state.length - 1]: {
                     guesses: {

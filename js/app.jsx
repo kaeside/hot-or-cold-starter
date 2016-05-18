@@ -7,7 +7,7 @@ var GameComponent = require('./gameComponent');
 
 var AppComponent = React.createClass({
     componentWillMount: function() {
-        this.props.dispatch(actions.makeGuess(8));
+        //this.props.dispatch(actions.makeGuess(8));
 
     },
     render: function() {
