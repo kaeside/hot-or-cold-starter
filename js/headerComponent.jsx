@@ -1,15 +1,28 @@
 var React = require('react');
+var connect = require('react-redux').connect;
+var GameComponent = require('./gameComponent');
+var actions = require('./actions');
 
 var HeaderComponent = React.createClass({
+    onClick: function(){
+        this.props.dispatch(actions.newGame());
+    },
+    wahtClick: function() {
+        document.querySelector('.overlay').style.display = 'inline';
+        console.log('clicky!');
+    },
+    goteem: function() {
+        document.querySelector('.overlay').style.display = 'none';
+    },
     render: function () {
-        
+
         return (
             <header>
 
                 <nav>
                     <ul className="clearfix">
-                        <li><a className="what" href="#">What ?</a></li>
-                        <li><a className="new" href="#">+ New Game</a></li>
+                        <li onClick={this.wahtClick}><a className="what" href="#">What ?</a></li>
+                        <li onClick={this.onClick}><a className="new" href="#">+ New Game</a></li>
                     </ul>
                 </nav>
                 <div className="overlay" id="modal">
@@ -28,7 +41,7 @@ var HeaderComponent = React.createClass({
                                 </li>
                             </ul>
                             <p>So, Are you ready?</p>
-                            <a className="close" href="#">Got It!</a>
+                            <a className="close" href="#" onClick={this.goteem}>Got It!</a>
                         </div>
                     </div>
                 </div>
@@ -39,5 +52,13 @@ var HeaderComponent = React.createClass({
     }
 });
 
+var mapStateToProps = function(state, props) {
+    var latest = state.length - 1;
+    return {
+        randomNumber: state[latest].randomNumber,
+        guesses: state[latest].guesses
+    }
+}
 
-module.exports = HeaderComponent;
+var Container = connect(mapStateToProps)(HeaderComponent);
+module.exports = Container;

@@ -3,6 +3,7 @@ var update = require('react-addons-update');
 
 var guessReducer = function(state, action) {
     state = state;
+    console.log('This is the state',state);
     var newState, feedback;
     if (action.type === actions.MAKE_GUESS) {
         if (isNaN(action.guess) || action.guess === '') {
@@ -14,7 +15,7 @@ var guessReducer = function(state, action) {
                 }
             });
             return newState;
-        } else if (action.guess > 100 || action.guess < 0) {
+        } else if (action.guess > 100 || action.guess <= 0) {
             newState = update(state, {
                 [state.length - 1]: {
                     feedback: {
@@ -50,7 +51,7 @@ var guessReducer = function(state, action) {
                feedback = 'Meh!';
            } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 40){
                feedback = 'Cold!';
-           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) < 50){
+           } else if (Math.abs(action.guess - state[state.length -1].randomNumber) >= 40){
                feedback = 'Very Cold!';
            }
             newState = update(state, {
