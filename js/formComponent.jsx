@@ -6,7 +6,7 @@ var GameComponent = require('./gameComponent');
 var FormComponent = React.createClass({
     preventRefresh: function(e) {
         e.preventDefault();
-        var userGuess = parseInt(this.refs.guessField.value);
+        var userGuess = parseFloat(this.refs.guessField.value);
         this.props.dispatch(actions.makeGuess(userGuess));
         this.refs.guessField.value = '';
     },
@@ -25,7 +25,8 @@ var mapStateToProps = function(state, props) {
     var latest = state.length - 1;
     return {
         randomNumber: state[latest].randomNumber,
-        guesses: state[latest].guesses
+        guesses: state[latest].guesses,
+        feedback: state[latest].feedback
     }
 };
 

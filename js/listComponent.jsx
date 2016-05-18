@@ -16,13 +16,13 @@ var ListComponent = React.createClass({
     }
 });
 var mapStateToProps = function(state, props) {
-    //Must get specific state object, else Props will be undefined!
     var latest = state.length - 1;
     return {
         randomNumber: state[latest].randomNumber,
-        guesses: state[latest].guesses
+        guesses: state[latest].guesses,
+        feedback: state[latest].feedback
     }
-}
+};
 
 var Connect = connect(mapStateToProps)(ListComponent);
 

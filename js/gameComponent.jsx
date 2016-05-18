@@ -6,11 +6,12 @@ var ListComponent = require('./listComponent');
 
 var GameComponent = React.createClass({
     render: function(){
+        var feedbackText = this.props.feedback;
         var guessCount = this.props.guesses.length + 1;
         return (
             <section className="game">
 
-                <h2 id="feedback">Make your Guess!</h2>
+                <h2 id="feedback">{feedbackText}</h2>
 
                 <FormComponent />
 
@@ -27,12 +28,12 @@ var GameComponent = React.createClass({
 // Necessary to re-map state at lower levels?
 var mapStateToProps = function(state, props) {
     var latest = state.length - 1;
-    console.log("State within mapStateToProps of GameComponent.jsx", state);
     return {
         randomNumber: state[latest].randomNumber,
-        guesses: state[latest].guesses
+        guesses: state[latest].guesses,
+        feedback: state[latest].feedback
     }
-}
+};
 
 var Connect = connect(mapStateToProps)(GameComponent);
 module.exports = Connect;
