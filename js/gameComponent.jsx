@@ -6,6 +6,7 @@ var ListComponent = require('./listComponent');
 
 var GameComponent = React.createClass({
     render: function(){
+        var guessCount = this.props.guesses.length + 1;
         return (
             <section className="game">
 
@@ -13,7 +14,7 @@ var GameComponent = React.createClass({
 
                 <FormComponent />
 
-                <p>Guess #<span id="count">0</span>!</p>
+                <p>Guess #<span id="count">{guessCount}</span>!</p>
 
                 <ListComponent />
 
@@ -25,10 +26,11 @@ var GameComponent = React.createClass({
 
 // Necessary to re-map state at lower levels?
 var mapStateToProps = function(state, props) {
+    var latest = state.length - 1;
     console.log("State within mapStateToProps of GameComponent.jsx", state);
     return {
-        randomNumber: state.randomNumber,
-        guesses: state.guesses
+        randomNumber: state[latest].randomNumber,
+        guesses: state[latest].guesses
     }
 }
 
