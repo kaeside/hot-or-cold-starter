@@ -14,6 +14,9 @@ var HeaderComponent = React.createClass({
     goteem: function() {
         document.querySelector('.overlay').style.display = 'none';
     },
+    clickYeh: function(){
+        this.props.dispatch(actions.fetchTheScore('/scores'));
+    },
     render: function () {
 
         return (
@@ -23,6 +26,7 @@ var HeaderComponent = React.createClass({
                     <ul className="clearfix">
                         <li onClick={this.wahtClick}><a className="what" href="#">What ?</a></li>
                         <li onClick={this.onClick}><a className="new" href="#">+ New Game</a></li>
+                        <li onClick ={this.clickYeh}><a className="yeh" href="#">Breh</a></li>
                     </ul>
                 </nav>
                 <div className="overlay" id="modal">

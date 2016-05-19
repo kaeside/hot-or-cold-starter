@@ -1,4 +1,3 @@
-
 var MAKE_GUESS = 'MAKE_GUESS';
 var makeGuess = function(guess) {
     return {
@@ -30,11 +29,12 @@ var userScoresMeh = function(mehrror){
     };
 };
 
-var fetchTheScore = function(endpoint) {
-    console.log(repository);
+var fetchTheScore = function() {
     return function(dispatch) {
-        var url ='localhost:8080' + endpoint;
+        console.log('I am the dispatch', dispatch);
+        var url ='http://localhost:8081/scores';
         return fetch(url).then(function(response) {
+            console.log('I am the ghost', response);
                 if (response.status < 200 || response.status >= 300) {
                     var error = new Error(response.statusText);
                     error.response = response;
@@ -73,4 +73,4 @@ exports.userScoresYeh = userScoresYeh;
 exports.USER_SCORES_MEH = USER_SCORES_MEH;
 exports.userScoresMeh = userScoresMeh;
 
-exports.fetchDescription = fetchDescription;
+exports.fetchTheScore = fetchTheScore;
