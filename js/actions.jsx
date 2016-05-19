@@ -1,3 +1,5 @@
+require('isomorphic-fetch');
+
 var ADD_REPOSITORY = 'ADD_REPOSITORY';
 var addRepository = function(repository) {
     return {
@@ -15,7 +17,29 @@ var rateRepository = function(repository, rating) {
     };
 };
 
+var FETCH_DESCRIPTION_SUCCESS = 'FETCH_DESCRIPTION_SUCCESS';
+var fetchDescriptionSuccess = function(repository, description) {
+    return {
+        type: FETCH_DESCRIPTION_SUCCESS,
+        repository: repository,
+        description: description
+    };
+};
+
+var FETCH_DESCRIPTION_ERROR= 'FETCH_DESCRIPTION_ERROR';
+var fetchDescriptionError = function(repository, error) {
+    return {
+        type: FETCH_DESCRIPTION_ERROR,
+        repository: repository,
+        error: error
+    };
+};
+
 exports.ADD_REPOSITORY = ADD_REPOSITORY;
 exports.addRepository = addRepository;
 exports.RATE_REPOSITORY = RATE_REPOSITORY;
 exports.rateRepository = rateRepository;
+exports.FETCH_DESCRIPTION_SUCCESS = FETCH_DESCRIPTION_SUCCESS;
+exports.fetchDescriptionSuccess = fetchDescriptionSuccess;
+exports.FETCH_DESCRIPTION_ERROR = FETCH_DESCRIPTION_ERROR;
+exports.fetchDescriptionError = fetchDescriptionError;
