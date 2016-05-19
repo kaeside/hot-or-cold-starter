@@ -10,6 +10,7 @@ var fetchDescription = function(repository) {
                 error.response = response
                 throw error;
             }
+            //throw new Error('poop');
             return response;
         })
         .then(function(response) {
@@ -22,6 +23,7 @@ var fetchDescription = function(repository) {
             );
         })
         .catch(function(error) {
+            console.log(error);
             return dispatch(
                 fetchDescriptionError(repository, error)
             );
