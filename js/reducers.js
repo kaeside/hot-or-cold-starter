@@ -73,6 +73,10 @@ var guessReducer = function(state, action) {
             guesses: [],
             feedback: 'Make Your Guess'
         });
+    } else if (action.type === actions.USER_SCORES_YEH) {
+
+        console.log('friggin worked yeh');
+
     }
     return state;
 };
